@@ -1,0 +1,31 @@
+@{
+  Layout = "_Layout";
+}
+@using AnimalShelterMVC.Models;
+@model AnimalShelterMVC.Models.Dog;
+
+<h2>Dog Details</h2>
+<hr />
+<h3>@Html.DisplayNameFor(model => model.Location): @Html.DisplayFor(model => model.Location)</h3>
+
+@if(@Model.Dogs.Count == 0)
+{
+  <p>There are currently no dogs in the animal shelter!</p>
+}
+else
+{
+  <h4>Dogs:</h4>
+  <ul>
+  @foreach(Dog dog in Model.Dogs)
+  {
+    <li>Name: @dog.Name</li>
+    <li>Breed: @dog.Breed</li>
+    <li>Age: @dog.Age</li>
+
+  }
+  </ul>
+}
+
+<p>@Html.ActionLink("Back to dogs", "Index")</p>
+<p>@Html.ActionLink("Edit Dog", "Edit", new { id = Model.DogId })</p>
+<p>@Html.ActionLink("Delete Dog", "Delete", new { id = Model.DogId })</p>

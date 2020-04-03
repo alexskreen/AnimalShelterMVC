@@ -1,0 +1,24 @@
+@{
+  Layout = "_Layout";
+}
+
+@model AnimalShelterMVC.Models.Dog
+
+<h2>Edit</h2>
+
+<h4>Edit this dog: @Html.DisplayFor(model => model.Name)</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(model => model.DogId)
+
+    @Html.LabelFor(model => model.Name)
+    @Html.TextBoxFor(model => model.Name)
+    @Html.LabelFor(model => model.Breed)
+    @Html.TextBoxFor(model => model.Breed)
+    @Html.LabelFor(model => model.Age)
+    @Html.TextBoxFor(model => model.Age)
+
+    <input type="submit" value="Save" />
+}
+<p>@Html.ActionLink("Back to dogs", "Index")</p>
